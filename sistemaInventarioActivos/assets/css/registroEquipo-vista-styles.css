@@ -1,0 +1,202 @@
+.oculto{
+    display: none;
+}
+
+h1{
+  margin-bottom: 30px;
+}
+
+.container-form{
+  font-size: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.container-form input {
+  /*
+  width : 200px; 
+  height: 30px;*/
+  font-size: 15px;
+}
+
+.container-form select{
+  font-size: 15px;
+}
+
+/*Agregar imagen de activo*/
+#archivoImagen{
+  position: absolute;
+  top:0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.container-imagen{
+  position: relative;
+  height: 500px;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px dashed #c2cdda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container-imagen .active{
+  border: none;
+}
+
+.container-imagen .image-activo{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-imagen .image-codigo{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-imagen img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.container-imagen .content{
+  align-items: center;
+}
+
+.container-imagen .icon{
+  font-size: 100px;
+  color: #09134E;
+}
+
+.container-imagen .text{
+  font-size: 20px;
+  font-weight: 500;
+  color:#C21828;
+}
+
+#cancel-btn {
+  text-align: right;
+  color: #C21828;
+}
+
+#upload-btn{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.previewImagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px dashed #c2cdda;
+    position: relative;
+    cursor: pointer;
+    background: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: auto;
+
+}
+
+.previewImagen .content{
+  align-items: center;
+}
+
+.previewImagen .icon{
+  font-size: 100px;
+  color: #09134E;
+}
+
+.previewImagen .text{
+  font-size: 20px;
+  font-weight: 500;
+  color:#C21828;
+
+}
+
+.previewImagen label{
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+.previewImagen img{
+	width: 100%;
+	height: 100%;
+}
+.upimg, .notBlock{
+	display: none !important;
+}
+
+.errorArchivo{
+	font-size: 16px;
+	font-family: arial;
+	color: #C21828;
+	text-align: center;
+	font-weight: bold; 
+	margin-top: 10px;
+}
+
+.delPhoto{
+	color: #FFF;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	background:#C21828;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	z-index: 10;
+}
+#tbl_list_productos img{
+	width: 50px;
+}
+.imgProductoDelete{
+	width: 175px;
+}
+
+.registro-btn{
+  margin-top: 20px;
+  background: #C21828;
+  color: whitesmoke;
+  font-size: 20px;
+  width: 500px;
+  height: 50px;
+}
+
+.registro-btn:hover {
+  background: #c72737;
+  color: whitesmoke;
+}

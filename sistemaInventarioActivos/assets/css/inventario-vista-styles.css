@@ -1,0 +1,31 @@
+
+.center{
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.oculto{
+    display: none;
+}
+
+.tabla-inventario thead{
+  background: #081042;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 15px;
+}
+
+.tabla-inventario tbody{
+  font-size: 14px;
+}
+/*
+.tabla-inventario #col-numSerial{
+  
+}*/
+
+.tabla-inventario .acciones-btn{
+  font-size: 10px;
+}
+
+
+

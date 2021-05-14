@@ -1,0 +1,132 @@
+.color{
+  background: #9658fe;
+  
+}
+
+.oculto{
+    display: none;
+}
+
+body {
+    background:rgb(236, 236, 236);
+    padding-top: 50px;
+    
+}
+
+.tarjeta{
+  margin-bottom: 100px;
+	background: white;
+	border-radius: 30px;
+  box-shadow: 12px 12px 22px grey;
+}
+
+.container-1{
+  margin: 200px;
+}
+
+.tarjeta h1{
+    text-align: center;
+    color: #09134E;
+}
+
+.center{
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.tabla-ubicaciones thead{
+  background: #081042;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 12px;
+}
+
+.tabla-ubicaciones tbody{
+  font-size: 12px;
+}
+
+.tabla-ubicaciones #col-capacidad{
+  width: 10px;
+}
+
+.tabla-ubicaciones .acciones-btn{
+  font-size: 10px;
+}
+ .color{
+  background: #9658fe;
+  
+}
+
+.ocultar {
+    display: none;
+    
+}
+ 
+.mostrar {
+    display: block;
+}
+
+body {
+    background:rgb(236, 236, 236);
+    padding-top: 50px;
+    
+}
+
+.tarjeta{
+  margin-bottom: 100px;
+	background: white;
+	border-radius: 30px;
+  box-shadow: 12px 12px 22px grey;
+}
+
+.container-1{
+  margin: 200px;
+}
+
+.tarjeta h1{
+    text-align: center;
+    color: #09134E;
+}
+
+.btn-nuevoUsuario {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-nuevoUsuario button{
+  color: whitesmoke;
+  background: #C21828;;
+  font-size: 15px;
+}
+
+.btn-nuevoUsuario button:hover{
+  color: whitesmoke;
+  background:#c22535;
+}
+
+.tabla-usuarios thead{
+  background: #081042;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 14px;
+}
+
+.tabla-usuarios tbody{
+  font-size: 14px;
+}
+
+.tabla-usuarios .acciones-btn{
+  font-size: 10px;
+}
+
+.modal-btns-acciones{
+  text-align: right;
+  margin-top: 20px;
+}
+
+#nuevaUb-btn{
+  margin-top: 30px;
+  font-size: 18px;
+  
+}

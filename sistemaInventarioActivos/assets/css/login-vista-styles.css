@@ -1,0 +1,175 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(236, 236, 236);
+}
+
+.ocultar {
+    display: none;
+}
+ 
+.mostrar {
+    display: block;
+}
+
+
+
+.tarjeta{
+    margin-top: 30px;
+	margin-bottom: 30px;
+	background: white;
+	border-radius: 30px;
+    box-shadow: 12px 12px 22px grey;
+}
+
+.izquierda{
+    padding: 0%;
+}
+
+.izquierda img{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-size: cover;
+}
+
+.derecha .row{
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*
+.derecha{
+    /*IMPORTANTE
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    
+}
+*/
+
+.derecha img{
+    margin-top: 15px; 
+    height: 150px; 
+}
+
+.derecha input{
+    width: 350px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+/*Quita la sombra azul del input*/
+.derecha input:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.alerta{
+    text-align: center;
+    font-size: 15px;
+    height: 50px;
+    width: 400px;
+    /*display: none;*/
+}
+
+#error{
+    text-align: center;
+    font-size: 15px;
+}
+
+/*
+form input:valid{
+        border:2px solid green;
+        background: #C21828;
+        
+}
+*/
+
+.input-contenedor{
+    margin-bottom: 20px;
+    border: 1px solid #aaaaaa; 
+    border-radius: 5px;
+}
+
+.input-contenedor i{
+    padding-top: 10px;
+    font-size: 25px;
+    min-width: 50px;
+    text-align: center;
+    color: #09134E;;
+}
+
+.btn-ingresar{
+    justify-content: center;
+    
+}
+
+.btn-ingresar button{
+    background: #09134E;
+    color: white;
+    width: 400px;
+    height: 45px;
+    margin-bottom: 50px;
+}
+
+.btn-ingresar button:hover{
+    background: #C21828;
+    color: white;
+}
+
+
+
+/* Small devices (landscape phones, 576px and up)        sm*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+    
+}
+
+/* Medium devices (tablets, 768px and up)                md*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+    
+}
+
+/* Large devices (desktops, 992px and up)                   lg*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .izquierda img {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 30px;
+        margin: 0%;
+        background-size: cover;
+        height: 450px;
+    }
+
+}
+    
+
+/* Extra large devices (large desktops, 1200px and up)      xl*/
+@media (min-width: 1200px) {
+    .izquierda img {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 30px;
+        background-size: cover;
+    }
+    .derecha img{
+    margin-top: 15px; 
+    height: 180px; 
+    }
+
+    .btn-ingresar button{
+        background: #09134E;
+        color: white;
+        width: 400px;
+        height: 50px;
+        margin-bottom: 50px;
+    }
+}

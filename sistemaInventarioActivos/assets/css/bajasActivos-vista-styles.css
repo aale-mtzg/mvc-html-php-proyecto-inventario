@@ -1,0 +1,19 @@
+.tabla-activos thead {
+  background: #081042;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 14px;
+}
+
+.tabla-activos tbody{
+  font-size: 14px;
+  background: whitesmoke;
+}
+
+.modal-btns-acciones{
+  text-align: right;
+  margin-top: 20px;
+}
+#seleccionar-activo, #tabla-activos{
+    display: none;
+}
