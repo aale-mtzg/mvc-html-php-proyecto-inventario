@@ -3,7 +3,7 @@
 //Configuraciones generales del sistema
 //constantes
 //serverurl
-const BASE_URL = "http://localhost/proyecto-sistemaInventarioActivos/sistemaInventarioActivos/";
+const BASE_URL = "http://localhost/proyecto-control-inventario-activos/sistemaInventarioActivos/";
 //nombre del sistema
 const SISTEMA = "Control de Inventario";
 //zona horaria, permite configurar la zona horaria del sistema
