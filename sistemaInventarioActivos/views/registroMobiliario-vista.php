@@ -1,6 +1,13 @@
 <!--CSS-->
 <link href="./assets/css/registroMobiliario-vista-styles.css" rel="stylesheet" type="text/css">
 
+<?php
+
+    include('./models/principalModelo.php');
+
+    $db = new principalModelo();
+
+?>
 
 <div class="container">
     <!---->
