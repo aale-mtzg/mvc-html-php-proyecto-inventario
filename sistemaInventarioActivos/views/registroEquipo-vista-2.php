@@ -16,9 +16,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <!--CSS-->
-        <link href="css/general-navbar-sidebar-menu-styles.css" rel="stylesheet" type="text/css">
-        <link href="./sistemaInventarioActivos/assets/css/registroEquipo-vista-styles.css" rel="stylesheet" type="text/css">
-
+        <link href="./assets/css/registroEquipo-vista-styles.css" rel="stylesheet" type="text/css">
         <!-- Include the Bootstrap 4 theme
         <link rel="stylesheet" href="@sweetalert2/theme-bootstrap-4/bootstrap-4.css"> -->
         
