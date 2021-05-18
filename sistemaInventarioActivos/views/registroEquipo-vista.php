@@ -10,6 +10,8 @@
 
 ?>
 
+
+
 <div class="container">
     <!---->
     <h1>Registro de Equipo</h1>
@@ -237,110 +239,7 @@
     </div>
 </div>
 
-<!--GENERAR NUMERO SERIAL-->
-<script type="text/javascript">
-    $(document).ready(function() {
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    
-        function getARandomOneInRange() {
-        return possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-    
-        function getRandomFour() {
-        return getARandomOneInRange() + getARandomOneInRange() + getARandomOneInRange() + getARandomOneInRange();
-        }
 
-        //Funcion autoejecutada, carga al entrar a la pagina
-        window.onload = function generarNumSerial(){
-            var serial = `${getRandomFour()}-${getRandomFour()}-${getRandomFour()}-${getRandomFour()}`;
-            $('#numSerial').val(serial);
-
-            //  <!--GENERAR CODIGO QR (Solo # serial por ahora)-->
-            //Variable del imput text
-            var textqr=$("#numSerial").val();
-            var sizeqr=$("#sizeqr").val();
-
-            parametros={"textqr":textqr,"sizeqr":sizeqr};
-                $.ajax({
-                type: "POST",
-                url: "qr.php",
-                data: parametros,
-                success: function(datos){
-                    image = $(".content-codigo-qr").html(datos);
-                    //let image = $("#archivoQR").val();
-                    $("#archivoQR").val(image);
-
-                }
-            })
-
-            parametros={"textqr":textqr,"sizeqr":sizeqr};
-                $.ajax({
-                type: "POST",
-                url: "qr-img.php",
-                data: parametros,
-                success: function(datos){
-                    $(".content-codigo-qr-img").html(datos);
-                    //let image = $("#archivoQR").val();
-                    //$("#archivoQR").val(image);
-                }
-            })
-            0
-            event.preventDefault();
-        }
-
-    });
-
-</script>
-
-<!--AGREGAR IMAGEN-->
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        //--------------------- SELECCIONAR FOTO ACTIVO ---------------------
-        $("#archivoImagen").on("change",function(){
-            var uploadFoto = document.getElementById("archivoImagen").value;
-            var foto       = document.getElementById("archivoImagen").files;
-            var nav = window.URL || window.webkitURL;
-            var contactAlert = document.getElementById('form_alert');
-            
-                if(uploadFoto !='')
-                {
-                    var type = foto[0].type;
-                    var name = foto[0].name;
-                    if(type != 'image/jpeg' && type != 'image/jpg' && type != 'image/png')
-                    {
-                        contactAlert.innerHTML = '<p class="errorArchivo">El archivo no es válido.</p>';                        
-                        $("#img").remove();
-                        $(".delPhoto").addClass('notBlock');
-                        
-                        $('#foto').val('');
-                        return false;
-                    }else{  
-                            contactAlert.innerHTML='';
-                            $("#img").remove();
-                            document.getElementById("portada").style.display = "none";
-                            $(".delPhoto").removeClass('notBlock');
-                            var objeto_url = nav.createObjectURL(this.files[0]);
-                            $(".previewImagen").append("<img id='img' src="+objeto_url+">");
-                            $(".upimg label").remove();
-                            
-                        }
-                }else{
-                    alert("No selecciono foto");
-                    $("#img").remove();
-                }              
-        });
-
-        $('.delPhoto').click(function(){
-            $('#foto').val('');
-            $(".delPhoto").addClass('notBlock');
-            document.getElementById("portada").style.display = "block";
-            $("#img").remove();
-
-        });
-
-    });
-</script>
 
 <!--
 <script type="text/javascript">
@@ -352,13 +251,5 @@
     });
 </script>
 -->
-<script type="text/javascript">
-    const a = document.querySelector("#btnDownload");
 
-    a.onclick = ()=>{
-        Swal.fire({
-            title:"Bienvenido!",
-        });
-    }
-</script>
 

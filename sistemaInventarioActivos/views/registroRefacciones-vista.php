@@ -134,7 +134,7 @@
                     </div>
                     
                     <!--QR-->
-                    <div class="form-row oculto">
+                    <div class="form-row ">
                         <div class="form-group ">
                             <!--<input id="archivoCodigoQR" type="file" class="form-control-file"  name="archivoCodigoQR" >-->
                             <div class="content-codigo-qr">
@@ -143,6 +143,14 @@
                         <!--Auxiliar oculto para guadar QR base64-->
                         <textarea class="form-control" id="archivoQR" name="archivoQR" rows="1"></textarea>
                     </div> 
+                    <!--QR imagen jpg--> 
+                    <div class="form-row ">
+                        <div class="form-group">
+                            <div class="content-codigo-qr-img">
+                                <!---Desplegar imagen de QR-->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             

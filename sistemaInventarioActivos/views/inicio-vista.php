@@ -9,6 +9,10 @@ $db = new principalModelo();
 
 ?>
 
+<script src="">
+    alert("Hola mundo!");
+</script>
+
 <!--Contenido VISTA INICIO-->
 <div class="container">
     <!--Página de Inicio-->
@@ -70,3 +74,5 @@ $db = new principalModelo();
         </div>
     </div>
 </div>
+
+
