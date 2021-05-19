@@ -183,7 +183,7 @@
                     
                     
                     <!--QR-->
-                    <div class="form-row ">
+                    <div class="form-row oculto">
                         <div class="form-group ">
                             <!--<input id="archivoCodigoQR" type="file" class="form-control-file"  name="archivoCodigoQR" >-->
                             <div class="content-codigo-qr">
@@ -193,7 +193,7 @@
                         <textarea class="form-control" id="archivoQR" name="archivoQR" rows="1"></textarea>
                     </div>
                     <!--QR imagen jpg--> 
-                    <div class="form-row ">
+                    <div class="form-row oculto">
                         <div class="form-group">
                             <div class="content-codigo-qr-img">
                                 <!---Desplegar imagen de QR-->
@@ -241,15 +241,5 @@
 
 
 
-<!--
-<script type="text/javascript">
-    const btnDownload = document.querySelector("#btnDownload");
-
-    btnDonwload.addEventListener("click", function(){
-
-
-    });
-</script>
--->
 
 

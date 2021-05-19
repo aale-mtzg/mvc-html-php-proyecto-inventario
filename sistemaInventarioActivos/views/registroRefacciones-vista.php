@@ -134,7 +134,7 @@
                     </div>
                     
                     <!--QR-->
-                    <div class="form-row ">
+                    <div class="form-row oculto">
                         <div class="form-group ">
                             <!--<input id="archivoCodigoQR" type="file" class="form-control-file"  name="archivoCodigoQR" >-->
                             <div class="content-codigo-qr">
@@ -144,7 +144,7 @@
                         <textarea class="form-control" id="archivoQR" name="archivoQR" rows="1"></textarea>
                     </div> 
                     <!--QR imagen jpg--> 
-                    <div class="form-row ">
+                    <div class="form-row oculto">
                         <div class="form-group">
                             <div class="content-codigo-qr-img">
                                 <!---Desplegar imagen de QR-->
@@ -194,96 +194,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>   
 
 
-<!--GENERAR NUMERO SERIAL-->
-<script type="text/javascript">
-    $(document).ready(function() {
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    
-        function getARandomOneInRange() {
-        return possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-    
-        function getRandomFour() {
-        return getARandomOneInRange() + getARandomOneInRange() + getARandomOneInRange() + getARandomOneInRange();
-        }
 
-        //Funcion autoejecutada, carga al entrar a la pagina
-        window.onload = function Ejemplo1(){
-            var serial = `${getRandomFour()}-${getRandomFour()}-${getRandomFour()}-${getRandomFour()}`;
-            $('#numSerial').val(serial);
-
-            //  <!--GENERAR CODIGO QR (Solo # serial por ahora)-->
-            //Variable del imput text
-            var textqr=$("#numSerial").val();
-            var sizeqr=$("#sizeqr").val();
-
-            parametros={"textqr":textqr,"sizeqr":sizeqr};
-                $.ajax({
-                type: "POST",
-                url: "qr.php",
-                data: parametros,
-                success: function(datos){
-                    image = $(".content-codigo-qr").html(datos);
-                    //let image = $("#archivoQR").val();
-                    $("#archivoQR").val(image);
-                }
-            })
-            event.preventDefault();
-        }
-
-    });
-
-</script>
-
-<!--AGREGAR IMAGEN-->
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        //--------------------- SELECCIONAR FOTO ACTIVO ---------------------
-        $("#archivoImagen").on("change",function(){
-            var uploadFoto = document.getElementById("archivoImagen").value;
-            var foto       = document.getElementById("archivoImagen").files;
-            var nav = window.URL || window.webkitURL;
-            var contactAlert = document.getElementById('form_alert');
-            
-                if(uploadFoto !='')
-                {
-                    var type = foto[0].type;
-                    var name = foto[0].name;
-                    if(type != 'image/jpeg' && type != 'image/jpg' && type != 'image/png')
-                    {
-                        contactAlert.innerHTML = '<p class="errorArchivo">El archivo no es válido.</p>';                        
-                        $("#img").remove();
-                        $(".delPhoto").addClass('notBlock');
-                        
-                        $('#foto').val('');
-                        return false;
-                    }else{  
-                            contactAlert.innerHTML='';
-                            $("#img").remove();
-                            document.getElementById("portada").style.display = "none";
-                            $(".delPhoto").removeClass('notBlock');
-                            var objeto_url = nav.createObjectURL(this.files[0]);
-                            $(".previewImagen").append("<img id='img' src="+objeto_url+">");
-                            $(".upimg label").remove();
-                            
-                        }
-                }else{
-                    alert("No selecciono foto");
-                    $("#img").remove();
-                }              
-        });
-
-        $('.delPhoto').click(function(){
-            $('#foto').val('');
-            $(".delPhoto").addClass('notBlock');
-            document.getElementById("portada").style.display = "block";
-            $("#img").remove();
-
-        });
-
-    });
-</script>
 
 <!--FUNCION ALERTA: Activo REGISTRADO-->
 <script type="text/javascript">

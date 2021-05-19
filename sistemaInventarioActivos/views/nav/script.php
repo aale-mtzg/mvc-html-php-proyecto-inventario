@@ -10,3 +10,4 @@
 
 
     <script src="<?php echo BASE_URL; ?>/assets/js/numeroSerial.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/imagenActivo.js"></script>
