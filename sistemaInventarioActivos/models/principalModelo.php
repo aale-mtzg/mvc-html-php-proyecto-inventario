@@ -324,5 +324,28 @@
 
 		}
 
+		//	PROTECCION DE DATOS BACKEND
+		/** ----Funcion verificar datos  */
+		//Permite verificar que los datos coincidan con los cracteres que se especifican en el filtro
+		protected static function verificar_datos($filtro, $cadena){
+			//comparacion usando una expresion regular
+			if(preg_match("\^".$filtro.", $cadena")){
+				return false;
+			}else{
+				return true;
+			}
+		}
 
-    }
+		/** ----Funcion verificar formato de fechas------*/
+		protected static function verificar_fechas($fecha){
+			$valores = explode('-', $fecha);
+			//validar fecha checkdate ( int $month , int $day , int $year ) : bool
+			if(count($valores)==3 && checkdate($valores[1], $valores[2], $valores[0])){
+				return false;
+			}else{
+				return true;
+			}
+		}
+
+
+    } 

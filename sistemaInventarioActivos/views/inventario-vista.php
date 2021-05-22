@@ -2,6 +2,8 @@
 <!--CSS-->
 <link href="./assets/css/inventario-vista-styles.css" rel="stylesheet" type="text/css">
 
+ 
+
 <?php
 
 include('./models/principalModelo.php');
@@ -15,7 +17,7 @@ $db = new principalModelo();
 <!--Tabla de activos registrados-->
     <div class="row">
         <div class="col-lg-12 ">
-            <table id="example" class="table table-responsive" style="width:100%">
+            <table id="example" class="table table-striped table-bordered tabla-inventario" style="width:100%">
                 <thead>
                     <tr>
                         <th id="col-numSerial">No.Serial</th>
