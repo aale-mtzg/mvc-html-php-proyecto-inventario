@@ -42,7 +42,7 @@ $ubicacion = $db-> Db_query($select);
                         <th>Nombre</thscope=>
                         <th>Nombre del Edificio</th>
                         <th>Descripcion</th>
-                        <th id="col-capacidad">Capacidad de la Ubicación</th>
+                        <th>Capacidad de la Ubicación</th>
                         <th>...</th>
                         </tr>
                 </thead>

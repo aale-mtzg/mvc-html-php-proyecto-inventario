@@ -8,6 +8,10 @@ include('./models/principalModelo.php');
 
 $db = new principalModelo();
 
+$conexion = $db -> connect(); 
+$select = "SELECT usuarios.*, rol.rol FROM usuarios INNER JOIN rol ON usuarios.idX_rol = rol.id_rol";
+$usuario = $db -> Db_query($select);
+
 ?>
 
 <div class="container">
@@ -28,44 +32,29 @@ $db = new principalModelo();
     <!--Tabla de usuarios registrados-->
     <div class="row" id="tabla-de-usuarios">
         <div class="col-lg-12">
-            <table id="example" class="table table-striped table-bordered tabla-usuarios" >
+            <table id="example" class="table table-striped table-bordered tabla-usuarios nowrap" style="width:100%">
                 <thead>
                     <tr>
                        <!--<th scope="col">ID</th>-->
-                        <th scope="col">Rol</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido Paterno</th>
-                        <th scope="col">Apellido Materno</th>
-                        <th scope="col">Nombre de Usuario</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">...</th>
+                        <th>Rol</th>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Nombre de Usuario</th>
+                        <th>Correo</th>
+                        <th>...</th>
                     </tr>
                 </thead>
-                    
                 <tbody> 
-                <?php 
-                    $conexion = $db -> connect();
+                    <?php while ($getFila = $usuario->fetch_assoc()) { ?>
                     
-                    $select = "SELECT usuarios.*, rol.rol FROM usuarios INNER JOIN rol ON usuarios.idX_rol = rol.id_rol";
-                    //$usuario = mysqli_query($conexion, $select);
-                    $usuario = $db -> Db_query($select);
-                    while ($getFila = mysqli_fetch_array($usuario)) { 
-                        $datos = $getFila[0].'||'. //ID
-                                $getFila[8]."||". //rol
-                                $getFila[2]."||". //nombre
-                                $getFila[3]."||". //ap
-                                $getFila[4]."||". //am
-                                $getFila[5]."||".
-                                $getFila[6]."||". //pass
-                                $getFila[7];
-                    ?>
                     <tr>
-                    <th scope="row"> <?php echo $getFila[8] ?> </th> <!-- rol--> 
-                        <th><?php echo $getFila[2] ?></th> <!--nom-->
-                        <td><?php echo $getFila[3] ?></td> <!--ap-->
-                        <td><?php echo $getFila[4] ?></td> <!--am-->
-                        <td><?php echo $getFila[5] ?></td> <!--nomUser-->
-                        <td><?php echo $getFila[7] ?></td> <!--correo-->
+                        <td><?php echo $getFila['rol'] ?> </td> <!-- rol--> 
+                        <td><?php echo $getFila['nombre'] ?></td> <!--nom-->
+                        <td><?php echo $getFila['apellido_paterno'] ?></td> <!--ap-->
+                        <td><?php echo $getFila['apellido_materno'] ?></td> <!--am-->
+                        <td><?php echo $getFila['nombre_usuario'] ?></td> <!--nomUser-->
+                        <td><?php echo $getFila['correo'] ?></td> <!--correo-->
                         
                         <!--botones--> 
                         <td>
@@ -78,14 +67,13 @@ $db = new principalModelo();
                                 <i class="far fa-edit"></i>
                             </button>
                             <!--Eliminar-->
-                            <button href="" type="button" class="btn btn-outline-danger acciones-btn" data-toggle="modal" data-target=<?php echo "#modal-eliminarUsuario" . $getFila[0]; ?>>
+                            <button href="" type="button" class="btn btn-outline-danger acciones-btn" data-toggle="modal" data-target=<?php echo "#modal-eliminarUsuario" . $getFila['id_usuario']; ?>>
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </td>
                     </tr>
                     <?php } ?>
                 </tbody>
-                
                 <!--Eliminar Usuario-->       
                 <div class="modal fade" id=<?php echo "modal-eliminarUsuario" . $getFila[0]; ?> tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">

@@ -5,7 +5,7 @@
         /**----Modelo obetener vistas----*/
         protected static function obtener_vistas_modelo($vistas){
             $listaVistasPermitidas = ["inicio", "cambioUbicacion", "prestamos", "bajasActivos", "registroEquipo", "registroMobiliario",
-                                        "registroRefacciones", "inventario", "ubicaciones", "reportesInventario", "configUsuarios", 
+                                        "registroRefacciones", "inventario", "ubicaciones", "reportesInventario", "configUsuarios", "configUsuarios2", 
                                         "configUbicaciones", "configEstatus", "inventario2"];
             //comprobar que la vista forma parte del sistema
             if(in_array($vistas, $listaVistasPermitidas)){

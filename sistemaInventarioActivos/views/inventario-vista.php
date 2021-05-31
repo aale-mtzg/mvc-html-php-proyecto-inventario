@@ -31,7 +31,9 @@ $db = new principalModelo();
                         			
                     </tr>
                 </thead>
-                    <?php 
+                    
+                <tbody>
+                <?php 
                         
                         $conexion = $db -> connect();
                     
@@ -49,47 +51,46 @@ $db = new principalModelo();
                                 $getresultado[16]."||".
                                 $getresultado[7]."||";                   
                     ?>                    
-                <tbody>
-   <tr>
-   	<th scope="row"> <?php echo $getresultado[3] ?> </th> <!--serial-->
-                            <td><?php echo $getresultado[4] ?></td> <!--serial Dispo-->
-   	<td><?php echo $getresultado[5] ?></td> <!--serial tec-->
-   	<td><?php echo $getresultado[17] ?></td> <!--estatus-->
-                            <td><?php echo $getresultado[6] ?></td> <!--tipo activo-->
-   	<td><?php echo $getresultado[16] ?></td> <!--ubicacion-->
-                            <td><?php echo $getresultado[7] ?></td> <!--nombre-->
-                            <td>
-                                <!--Boton de accion Editar(Modal)-->
-                                <button type="button" id="" class="btn btn-outline-secondary acciones-btn" data-toggle="modal" data-target="#modal-editarActivo">
-                                    Editar<i class="far fa-edit"></i>
-                                </button>
-                                <!-- Boton de accion Eliminar(Modal)-->
-                                <button type="button" class="btn btn-outline-danger acciones-btn" data-toggle="modal" data-target="#modal-eliminarActivo">
-                                    Eliminar <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                           
+                    <tr>
+                        <th scope="row"> <?php echo $getresultado[3] ?> </th> <!--serial-->
+                        <td><?php echo $getresultado[4] ?></td> <!--serial Dispo-->
+                        <td><?php echo $getresultado[5] ?></td> <!--serial tec-->
+                        <td><?php echo $getresultado[17] ?></td> <!--estatus-->
+                        <td><?php echo $getresultado[6] ?></td> <!--tipo activo-->
+                        <td><?php echo $getresultado[16] ?></td> <!--ubicacion-->
+                        <td><?php echo $getresultado[7] ?></td> <!--nombre-->
+                        <td>
+                            <!--Boton de accion Editar(Modal)-->
+                            <button type="button" id="" class="btn btn-outline-secondary acciones-btn" data-toggle="modal" data-target="#modal-editarActivo">
+                                Editar<i class="far fa-edit"></i>
+                            </button>
+                            <!-- Boton de accion Eliminar(Modal)-->
+                            <button type="button" class="btn btn-outline-danger acciones-btn" data-toggle="modal" data-target="#modal-eliminarActivo">
+                                Eliminar <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
                             
-                            <!--
-                            <td><?php echo $getresultado['fecha_alta'] ?></td>
-   	<td><?php echo $getresultado['marca'] ?></td>
-   	<td><?php echo $getresultado['modelo'] ?></td>
-   	<td><?php echo $getresultado['color'] ?></td>
-   	<td><?php echo $getresultado['descripcion_activo'] ?></td>
-   	<td>
-   		<img src="data/:image/jpeg:base64, <?php echo base64_encode($getresultado['imagen_activo']) ?>">
-   	</td>
-   	<td>
-                            	<img src="data/:image/jpeg:base64, <?php echo base64_encode($getresultado['imagen_codigo_qr']) ?>">
-                            </td>
-                            
-   	
-   	<td>
-   		<a href="modificarActivo.php?idx_numeroSerial=<?= $getresultado['idx_numeroSerial'] ?>" class="btn btn-outline-info">Modificar</a>
-   	</td>
-                            -->
-   </tr>
-  <?php } ?>
+                                
+                                <!--
+                        <td><?php echo $getresultado['fecha_alta'] ?></td>
+                        <td><?php echo $getresultado['marca'] ?></td>
+                        <td><?php echo $getresultado['modelo'] ?></td>
+                        <td><?php echo $getresultado['color'] ?></td>
+                        <td><?php echo $getresultado['descripcion_activo'] ?></td>
+                        <td>
+                            <img src="data/:image/jpeg:base64, <?php echo base64_encode($getresultado['imagen_activo']) ?>">
+                        </td>
+                        <td>
+                                                    <img src="data/:image/jpeg:base64, <?php echo base64_encode($getresultado['imagen_codigo_qr']) ?>">
+                                                </td>
+
+
+                        <td>
+                            <a href="modificarActivo.php?idx_numeroSerial=<?= $getresultado['idx_numeroSerial'] ?>" class="btn btn-outline-info">Modificar</a>
+                        </td>
+                                                -->
+                    </tr>
+                <?php } ?>
                 </tbody>
             </table> 
             
