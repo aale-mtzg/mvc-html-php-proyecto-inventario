@@ -29,7 +29,7 @@ Cambio tentativo de versiones para que funcione datatable-->
 
 
 
-<!--SweetAlert-->
+<!--SweetAlert V10-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     
@@ -39,3 +39,4 @@ Cambio tentativo de versiones para que funcione datatable-->
     <script src="<?php echo BASE_URL; ?>/assets/js/numeroSerial.js"></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/imagenActivo.js"></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/datatable.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/alertasFormularios.js"></script>
