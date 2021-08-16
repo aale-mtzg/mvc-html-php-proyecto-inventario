@@ -10,11 +10,13 @@
 
     //Clase del modelo principal: funciones del sistema
     class principalModelo{
-        /**----Funcion conexion de BD----*/
+        /*
         protected static function conectar(){
+				//revisar diferencias de funciones
+				//Español/ingles
+        }*/
 
-        }
-
+		/**----Funcion conexion de BD----*/
         protected static $connection;
         //paradigma
     	// Connect to the database

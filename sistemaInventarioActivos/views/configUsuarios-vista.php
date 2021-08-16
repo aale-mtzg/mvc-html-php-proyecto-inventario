@@ -123,7 +123,93 @@ $db = new principalModelo();
             
         </div>
     </div>
-                        
+
     
-    
+</div>
+
+<!-- Modal: Registro de nuevo usuario-->
+<div class="modal fade" id="modal-nuevoUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <H2 class="modal-title" id="exampleModalLongTitle">Nuevo usuario</H2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div id="msg"></div>
+                            <!-- Mensajes de Verificación -->
+                            <div id="error" class="alert alert-danger ocultar" role="alert">
+                                Las Contraseñas no coinciden, vuelve a intentar!
+                            </div>
+                           
+                            <!-- Fin Mensajes de Verificación -->
+
+
+                            <!--FORMULARIO: REGISTRO DE NUEVO USUARIO-->
+                            <form id="formulario-nuevoUsuario" class="FormularioAjax" action="<?php echo BASE_URL; ?>ajax/usuariosAjax.php" method="POST" data-form="save" autocomplete="off">
+                                <div class="form-row ">
+                                    <div class="form-group col-md-6">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" >
+                                    </div>      
+                                </div>
+                                <div class="form-row ">
+                                    <div class="form-group col-md-6">
+                                        <label for="aMaterno">Apellido paterno</label>
+                                    <input type="text" class="form-control" id="aPaterno" name="aPaterno" >    
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="aPaterno">Apellido materno</label>
+                                        <input type="text" class="form-control" id="aMaterno" name="aMaterno" >    
+                                    </div>     
+                                         
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 ">
+                                        <label for="rol">Rol</label>
+                                        <select class="form-control" id="rol" name="rol">
+                                            <?php // TODO ESTA LINEA DE CODIGO SOLO ES PARA TRAER LOS DATOS DE MIS TABLAS CON LA LLAVE FORANEA
+                                                $get_roles = "SELECT * FROM rol";
+                                                $consulta = $db -> Db_query($get_roles);
+                                                while($fila=$consulta->fetch_array()){ //recorre el arreglo
+                                                    echo "<option value ='".$fila['id_rol']."'>".$fila['rol']."</option>"; //muestra los datos de la tabla externa
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="nombreUsuario">Nombre de usuario</label>
+                                        <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" >
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="correo">Correo electronico</label>
+                                        <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" >      
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="contrasena">Contraseña</label>
+                                        <input type="password" class="form-control"  name="contraseña" id="contraseña" >      
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="confirmarContrasena">Confirmar contraseña</label>
+                                        <input type="password" class="form-control" name="confirmaContraseña" id="confirmaContraseña" required>      
+                                    </div>
+                                </div>
+                                
+                                <div class="modal-btns-acciones">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" id="btn-registrar-usuario" class="btn btn-success">Registrar</button>
+                                <!--<button  type="btn" class="btn-success" onclick="Ocultar()"  >Ocultar</button>-->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </div>

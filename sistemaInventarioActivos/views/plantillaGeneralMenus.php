@@ -17,7 +17,7 @@
     </head>
     <body>
         <?php
-
+            //confirmar si hay una peticion ajax
             $peticionAjax = false;
 
             require_once "./controllers/vistasControlador.php";
