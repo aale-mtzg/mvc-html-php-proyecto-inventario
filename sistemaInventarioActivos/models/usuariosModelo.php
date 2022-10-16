@@ -5,7 +5,9 @@ require_once "principalModelo.php";
 class usuariosModelo extends principalModelo{
     /**---------Modelo agregar usuario------- */
     protected static function agregar_usuario_modelo($datos){
-        /*
+
+        $db = new Db();
+        
         $sql = principalModelo::connect()->prepare("INSERT INTO usuarios (idX_rol, nombre, apellido_paterno, apellido_materno, nombre_usuario, contrasena, correo) 
         VALUES (:rol,:nombre,:aPaterno,:aMaterno,:nombreUsuario,:correo,:confirmarpass)");
 
@@ -21,7 +23,7 @@ class usuariosModelo extends principalModelo{
 
         return $sql;
         
-        */
+        /*
         $db = new Db();
         //PENDIENTE CONFRIMAR PASS
         $confirmarpass = $_POST['confirmarpass'];
@@ -54,6 +56,7 @@ class usuariosModelo extends principalModelo{
             window.history.go(-1);</script>';
            //header("location:usuarios.php");
         }
+        */
     } 
 
 }

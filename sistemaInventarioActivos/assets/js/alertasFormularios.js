@@ -1,122 +1,117 @@
-// constante para seleccionar todos los formularios que se tengan en una misma vista
-const formularios_ajax = document.querySelectorAll(".FormularioAjax"); //esta clase la deben de tener todos lod formularios
+//Identificar formulario
+const formularios_ajax = document.querySelectorAll(".FormularioAjax");
 
-//Funcion
 function enviar_formulario_ajax(e){
-    //evita redireccinar a la url del envio de formulario
-    e.preventDefault();
+	e.preventDefault();
 
-    //array de datos del form
-    let datosFormulario = new FormData(this);
-    //enviar form
-    let method = this.getAttribute("method");
+	let datos = new FormData(this);
+	let method = this.getAttribute("method");
+	let action = this.getAttribute("action");
+	let tipo = this.getAttribute("data-form");
 
-    let action = this.getAttribute("action");
+	let encabezados = new Headers();
 
-    let tipo = this.getAttribute("data-form");
+	let config = {
+		method: method,
+		headers: encabezados,
+		mode: 'cors',
+		cache: 'no-cache',
+		body: datos
+	}
 
-    let encabezados = new Headers();
-    //todas las configuraciones para la funcion fetch en un  array
-    let config = {
-        method: 'POST',
-        headers: encabezados,
-        mode: 'cors', 
-        cache: 'default',
-        body: datosFormulario
-    };
+	let texto_alerta;
 
-    //Cambiar texto de alertas
-    let texto_alerta;
+	if(tipo==="save"){
+		texto_alerta="Los datos quedaran guardados en el sistema";
+	}else if(tipo==="delete"){
+		texto_alerta="Los datos serán eliminados completamente del sistema";
+	}else if(tipo==="update"){
+		texto_alerta="Los datos del sistema serán actualizados";
+	}else if(tipo==="search"){
+		texto_alerta="Se eliminará el término de búsqueda y tendrás que escribir uno nuevo";
+	}else if(tipo==="loans"){
+		texto_alerta="Desea remover los datos seleccionados para préstamos o reservaciones";
+	}else{
+		texto_alerta="Quieres realizar la operación solicitada";
+	}
 
-    if(tipo==="save"){
-        texto_alerta="Informacion guardada correctamente";
-    }else if(tipo==="delete"){
-        texto_alerta="Datos eliminados";
-    
-    }else if(tipo==="update"){
-        texto_alerta="Datos actualizados";
-    }else{
-        texto_alerta="Quieres realizar la operacion solicitada";
-    }
-    Swal.fire({
-            
-        title: '¿Estas seguro?',
-        text: texto_alerta,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: 'Aceptar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if(result.isConfirmed){
-            //Funcion fetch
-            fetch(action, config)
-            .then(respuesta => respuesta.json())
-            .then(respuesta => {
-                //retornar alerta de registro exitoso
-                return alertas_ajax(respuesta);
-                
-            });
-        }  
-    });
+	fetch(action,config)
+	.then(alerta => alerta.json())
+	.then(alerta => {
+		return alertas_ajax(alerta);
+	});
+/*
+	Swal.fire({
+		title: '¿Estás seguro?',
+		text: texto_alerta,
+		type: 'question',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Aceptar',
+		cancelButtonText: 'Cancelar'
+	}).then((result) => {
+		
+			console.log(datos);
+			console.log(datos.get('nombreUsuario'))
+			console.log(datos.get('correo'))
+			console.log(data.get('confirmaContraseña'))
+			
+			fetch(action, {
+				method: 'POST',
+				body: datos
+			})
+
+				.then( res => res.json())
+				.then(datos => {
+					console.log(datos)
+				})
+			/*fetch(action,config)
+			.then(respuesta => respuesta.json())
+			.then(respuesta => {
+				return alertas_ajax(respuesta);
+			});
+
+
+	});*/
+
 }
 
-
-//Detectar el envio de formularios
 formularios_ajax.forEach(formularios => {
-    formularios.addEventListener("submit", enviar_formulario_ajax);
+	formularios.addEventListener("submit", enviar_formulario_ajax);
 });
 
-//ALERTAS
 function alertas_ajax(alerta){
-    
-    if(alerta.Alerta==="simple"){
-        /*Alerta Registro de activos exitoso
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Activo registrado',
-            showConfirmButton: false,
-            timer: 1600
-        })
-        //se activa el método luego de 1 segundos
-        setTimeout(refresh,1000);*/
-
-        Swal.fire({
-            /*position: 'center',
-            icon: 'success',*/
-            title: alerta.Titulo,
-            text: alerta.Texto,
-            icon: alerta.Tipo, //tipo de alerta
-            confirmButtonText: 'Aceptar (Imprimir)'
-        });
-
-    }else if(alerta.Alerta==="recargar"){  //recargar la pagina al dar en aceptar
-        Swal.fire({
-            
-            title: alerta.Titulo,
-            text: alerta.Texto,
-            type: alerta.Tipo, //tipo de alerta
-            confirmButtonText: 'Aceptar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                location.reload();
-            }
-        })
-
-    }else if(alerta.Alerta==="limpiar"){ //limpiar los campos del formulario
-        Swal.fire({
-            
-            title: alerta.Titulo,
-            text: alerta.Texto,
-            type: alerta.Tipo, //tipo de alerta
-            confirmButtonText: 'Aceptar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.querySelector(".FormularioAjax").requestFullscreen(); //Seleccionar un unico elemento(el formulario que se esta enviando)
-            }
-        })
-    }else if(alerta.Alerta==="redireccionar"){
-        window.location.href=alerta.URL;
-
-    }
+	if(alerta.Alerta==="simple"){
+		Swal.fire({
+			title: alerta.Titulo,
+			text: alerta.Texto,
+			type: alerta.Tipo,
+			confirmButtonText: 'Aceptar'
+		});
+	}else if(alerta.Alerta==="recargar"){
+		Swal.fire({
+			title: alerta.Titulo,
+			text: alerta.Texto,
+			type: alerta.Tipo,
+			confirmButtonText: 'Aceptar'
+		}).then((result) => {
+			if(result.value){
+				location.reload();
+			}
+		});
+	}else if(alerta.Alerta==="limpiar"){
+		Swal.fire({
+			title: alerta.Titulo,
+			text: alerta.Texto,
+			type: alerta.Tipo,
+			confirmButtonText: 'Aceptar'
+		}).then((result) => {
+			if(result.value){
+				document.querySelector(".FormularioAjax").reset();
+			}
+		});
+	}else if(alerta.Alerta==="redireccionar"){
+		window.location.href=alerta.URL;
+	}
 }

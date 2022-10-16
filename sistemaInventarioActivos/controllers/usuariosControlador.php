@@ -24,7 +24,7 @@ class usuariosControlador extends usuarioModelo {
 
 
         //*** Comprobar campos vacios */
-        if($nombre=="" || $aPaterno=="" || $aMaterno=="" || $nombreUsuario=="" || $correo=="" || $contraseña=="" || $confirmaContraseña=="" ){
+/*        if($nombre=="" || $aPaterno=="" || $aMaterno=="" || $nombreUsuario=="" || $correo=="" || $contraseña=="" || $confirmaContraseña=="" ){
             $alerta=[
                 "Alerta"=>"simple", 
                 "Titulo"=>"Ocurrio un error inesperado",
@@ -32,7 +32,38 @@ class usuariosControlador extends usuarioModelo {
                 "Tipo"=>"error"
             ];
 
-            /echo json_encode($alerta);
+            echo json_encode($alerta);
+            //Para que no se siga executando el codigo 
+            exit();
+
+        } 
+*/
+        /*== comprobar campos vacios ==*/
+		if($nombre=="" || $aPaterno=="" || $aMaterno=="" || $contraseña=="" || $confirmaContraseña==""){
+			
+            //echo json_encode('Llena todos los campos');
+            $alerta =[
+				"Alerta"=>"simple",
+				"Titulo"=>"Error",
+				"Texto"=>"No has llenado todos los campos que son obligatorios",
+				"Tipo"=>"error"
+			];
+			echo json_encode($alerta);
+			exit();*/
+		}else{
+            echo json_encode('Correcto!');
+        }
+
+        //*** Comprobar contraseñas iguales */
+        if($contraseña != $confirmaContraseña){
+            $alerta=[
+                "Alerta"=>"simple", 
+                "Titulo"=>"Ocurrio un error inesperado",
+                "Texto"=>"Las contraseñas no coinciden",
+                "Tipo"=>"error"
+            ];
+
+            echo json_encode($alerta);
             //Para que no se siga executando el codigo 
             exit();
 

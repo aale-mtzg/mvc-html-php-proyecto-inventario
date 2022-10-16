@@ -19,7 +19,7 @@ $db = new principalModelo();
     </div>
     <div class="row btn-nuevoUsuario" >
         <div class="col-lg-12">
-            <button  type="submit" class="btn btn-nuevoUsuario" data-toggle="modal" data-target="#modal-nuevoUsuario">
+            <button  type="button" class="btn btn-nuevoUsuario" data-toggle="modal" data-target="#modal-nuevoUsuario">
                 Registrar nuevo usuario
                 <i class="fas fa-user-plus"></i>
             </button>
@@ -69,7 +69,7 @@ $db = new principalModelo();
                         
                         <!--botones--> 
                         <td>
-                            <!--Movimintos-->
+                            <!--Movimientos-->
                             <button type="button" href="" class="btn btn-outline-primary acciones-btn" data-toggle="modal" data-target="#modal-movimientosUsuario">
                                 <!--Movimientos--><i class="far fa-folder-open"></i>
                             </button>

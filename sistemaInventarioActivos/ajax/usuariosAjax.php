@@ -4,12 +4,19 @@ $peticionAjax = true;
 require_once "../config/config.php";
 
 
+
+
+if ($_POST) { 
+    
+    
+    
+}
 //IF -> Validar campos obligatorios
 //Auqnue ya esta aplicado ""require" desde el formulario
 //Detectar el envio de formulario
-if(isset($_POST['nombre'])){
+//if(isset($_POST['nombre'])){
     /**---------Instancia al controlador------- */
-    require_once "../controllers/usuariosControlador.php";
+   /* require_once "../controllers/usuariosControlador.php";
     
     $instancia_usuario = new usuariosControlador();
 
@@ -29,4 +36,4 @@ if(isset($_POST['nombre'])){
     //redireccionar el intento de acceder al archivo al login
     header("Location: ".BASE_URL."login");
     exit();
-}
+}*/
